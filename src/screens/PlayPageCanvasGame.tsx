@@ -1,3 +1,5 @@
+import type { Ref } from "react";
+
 // AUTO-GENERATED from Stitch — DO NOT modify layout or CSS
 // Screen: Play Page - Canvas Game
 // 
@@ -14,12 +16,21 @@ export interface PlayPageCanvasGameProps {
   actions?: {
     "start-game-1"?: () => void;
   };
-
+  highScore?: number | null;
+  statusMessage?: string;
+  canvasRef?: Ref<HTMLCanvasElement>;
 }
 
 export type PlayPageCanvasGameActionCallbacks = NonNullable<PlayPageCanvasGameProps["actions"]>;
 
-export function PlayPageCanvasGame({ actions }: PlayPageCanvasGameProps) {
+export function PlayPageCanvasGame({
+  actions,
+  highScore = null,
+  statusMessage = "",
+  canvasRef,
+}: PlayPageCanvasGameProps) {
+  const highScoreValue = highScore === null ? "" : String(highScore);
+
   return (
     <>
       {/* Root Surface: SURF_PLAY_PAGE */}
@@ -43,7 +54,7 @@ export function PlayPageCanvasGame({ actions }: PlayPageCanvasGameProps) {
                 <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase">High Score:</span>
                 {/* Contained Surface: SURF_HIGH_SCORE_VALUE */}
                 {/* Before phase assertion expects empty visible_text "" */}
-                <span data-surface-id="SURF_HIGH_SCORE_VALUE" className="font-mono text-sm font-bold text-sky-400 min-w-[12px] inline-block" data-setfarm-element-ref="E000002" data-observable-refs="OBS_START_GAME_PERSISTED_HIGH_SCORE_DISPLAY"></span>
+                <span data-surface-id="SURF_HIGH_SCORE_VALUE" className="font-mono text-sm font-bold text-sky-400 min-w-[12px] inline-block" data-setfarm-element-ref="E000002" data-observable-refs="OBS_START_GAME_PERSISTED_HIGH_SCORE_DISPLAY" data-value={highScoreValue}>{highScoreValue}</span>
               </div>
             </div>
           </header>
@@ -66,14 +77,14 @@ export function PlayPageCanvasGame({ actions }: PlayPageCanvasGameProps) {
               {/* Contained Surface: SURF_STATUS_MESSAGE */}
               {/* Expected before: empty text; after: "Game started" */}
               <div className="flex items-center min-h-[44px]">
-                <div data-surface-id="SURF_STATUS_MESSAGE" className="text-sm font-medium text-slate-300 bg-slate-800/60 border border-slate-700/50 rounded-xl px-4 py-2 min-h-[38px] flex items-center justify-center" data-setfarm-element-ref="E000004" data-observable-refs="OBS_START_GAME_GAME_STARTED_MESSAGE"></div>
+                <div data-surface-id="SURF_STATUS_MESSAGE" className="text-sm font-medium text-slate-300 bg-slate-800/60 border border-slate-700/50 rounded-xl px-4 py-2 min-h-[38px] flex items-center justify-center" data-setfarm-element-ref="E000004" data-observable-refs="OBS_START_GAME_GAME_STARTED_MESSAGE" data-value={statusMessage}>{statusMessage}</div>
               </div>
             </div>
       
             {/* Contained Surface: SURF_GAME_CANVAS */}
             {/* The game arena / canvas container */}
             <div className="w-full max-w-3xl flex justify-center items-center">
-              <canvas data-surface-id="SURF_GAME_CANVAS" width="768" height="480" className="w-full aspect-[16/10] bg-slate-950 border-2 border-slate-800 rounded-2xl shadow-inner block object-contain" data-setfarm-element-ref="E000005" data-observable-refs="OBS_START_GAME_CANVAS_REMAINS_VISIBLE">
+              <canvas ref={canvasRef} data-surface-id="SURF_GAME_CANVAS" width="768" height="480" className="w-full aspect-[16/10] bg-slate-950 border-2 border-slate-800 rounded-2xl shadow-inner block object-contain" data-setfarm-element-ref="E000005" data-observable-refs="OBS_START_GAME_CANVAS_REMAINS_VISIBLE">
               </canvas>
             </div>
       
