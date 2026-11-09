@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-11-09T05:00:00.595Z",
+  "screenCount": 1,
+  "screens": {
+    "caf1f082a4ad4d70b8551c2c973e6920": {
+      "screenId": "caf1f082a4ad4d70b8551c2c973e6920",
+      "materialSymbolsRequired": false,
+      "sections": [
+        {
+          "tag": "main",
+          "layout": "flex-col",
+          "classes": [
+            "flex-1",
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "p-6",
+            "md:p-12",
+            "w-full",
+            "max-w-6xl",
+            "mx-auto"
+          ],
+          "childCount": 14
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "Start Game",
+          "classes": [
+            "px-8",
+            "py-3.5",
+            "bg-gradient-to-r",
+            "from-sky-500",
+            "to-blue-600",
+            "hover:from-sky-400",
+            "hover:to-blue-500",
+            "text-white",
+            "font-bold",
+            "text-base",
+            "rounded-xl",
+            "shadow-lg",
+            "shadow-sky-500/25",
+            "transition-all",
+            "duration-200",
+            "focus:outline-none",
+            "focus:ring-2",
+            "focus:ring-sky-400",
+            "focus:ring-offset-2",
+            "focus:ring-offset-slate-900",
+            "active:scale-95",
+            "cursor-pointer"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [],
+      "navLinks": [],
+      "cards": [],
+      "icons": [],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {},
+      "fonts": [],
+      "layoutHints": {
+        "flexDirection": "col",
+        "gap": "3"
+      },
+      "behaviorContract": [
+        {
+          "kind": "button",
+          "label": "Start Game",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "tabBar": [],
+      "title": "Play Page - Canvas Game"
+    }
+  }
+}
